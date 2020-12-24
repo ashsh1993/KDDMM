@@ -18,7 +18,7 @@ x_des = [x(1), x(2), x(3), x(4), x(5), x(6), x(7), x(8), x(9), x(10), ...
         
 CA = CA_all(x_des~=0,:);
 
-figure
+%figure
 % Plot node positions
 labels = {'1','2','3','4','5','6','7','8','9'};
 for i = 1:size(NC,1)

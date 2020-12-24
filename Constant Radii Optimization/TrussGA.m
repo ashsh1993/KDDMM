@@ -52,6 +52,14 @@ mutation_rate = 0.25;
 ga_options = optimoptions('gamultiobj', 'PopulationType', 'bitstring', 'CrossoverFraction', 0.85, 'MutationFcn', {@mutationuniform, mutation_rate}, 'PopulationSize', 1000, 'FunctionTolerance', 1e-8);
 [x_pop, f_pop] = gamultiobj(fitnessfcn, n_var, [], [], [], [], [], [], ga_options); 
 
+% %% Random search
+% x_pop = randsample(2,300*32, true)-1;
+% x_pop = reshape(x_pop,300,32);
+% f_pop = [];
+% for i=1:300
+%     f_pop = [f_pop; multiobjective_bitstring(x_pop(i,:),CA_all,NC,A,E,sel,r,target_c_ratio)];
+% end
+   
 %% Compute and plot feasibility and stability scores for final population
 feas_scores = zeros(size(x_pop,1),1);
 stab_scores = zeros(size(x_pop,1),1);
